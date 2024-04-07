@@ -38,9 +38,19 @@ clean:
 	rm -r $(BUILD_DIR)
 
 run:
+	@echo "********************"
+	@echo "*                  *"
+	@echo "*    Debug Start   *"
+	@echo "*                  *"
+	@echo -e "********************\n"
 	@$(BUILD_DIR)/final_program $(TARGET_ARGS) 
 
 love:
+	@echo "********************"
+	@echo "*                  *"
+	@echo "*    Debug Start   *"
+	@echo "*                  *"
+	@echo -e "********************\n"
 	@$(BUILD_DIR)/final_program
 
 kkp:
@@ -50,8 +60,8 @@ asm:
 	@gcc -S src/main.c -o asm.s  
 
 release:
-	@cp ./build/final_program ~/bin/$(TARGET_ARGS)
-	@chmod a+x ~/bin/$(TARGET_ARGS)
+	@cp ./build/final_program ~/bin/$(TARGET_NAME)
+	@chmod a+x ~/bin/$(TARGET_NAME)
 # Include the .d makefiles. The - at the front suppresses the errors of missing
 # Makefiles. Initially, all the .d files will be missing, and we don't want those
 # errors to show up.
