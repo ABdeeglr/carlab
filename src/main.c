@@ -1,21 +1,13 @@
 #define DEBUG
 #include "head.h"
-
+#define ARRAY_SIZE 10000
 int get_random_integer(int boundary);
 
 int main(int argc, const char* argv[]) {
 
-    int sum = 0;
-    int speed;
-    puts("Do you want to enable better integration of stack with GHCup?\n"
-         "This means that stack won't install its own GHC versions, but uses GHCup's.\n"
-         "For more information see:\n\t"
-         "https://docs.haskellstack.org/en/stable/yaml_configuration/#ghc-installation-customisation-experimental");
-
-    
-    while (sum <= 2048 * 2048) {
-        speed = get_random_integer(2048);
-
+    int numbers[ARRAY_SIZE];
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        numbers[i] = get_random_integer(50000);
     }
     
     return 0;
