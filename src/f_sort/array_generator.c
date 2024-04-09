@@ -8,6 +8,11 @@ intArrayGenerator(const int size, const int boundary) {
     int* numbers = (int*)malloc(sizeof(int) * size);
     srand((unsigned) time(NULL));
 
+    if (size % 10 != 0) {
+        for (int i = 0; i < size; i++) numbers[i] = rand() % boundary;
+        return numbers;
+    }
+    
     for (int i = 0; i < size; i += 10)
     {
         numbers[i + 0] = rand() % boundary;
