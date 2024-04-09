@@ -9,6 +9,7 @@
 #ifndef __F_SORT_H__
 #define __F_SORT_H__
 
+// #include <stdbool.h>
 
 /**
  * 对外接口
@@ -52,18 +53,18 @@ friend void printArray(int* array, const int size);
 public void selectSort(int* a, const int size);
 
 /**
- * The algorithm that people often use to sort bridge hands
- *  is to consider the cards one at a time,
- *  inserting each into its proper place among those already considered (keeping them sorted).
- *  In a computer implementation, 
- *  we need to make space for the current item by moving larger items
- *  one position to the right, 
- * before inserting the current item into 
- * the vacated position.
+ * 插入排序 
+ * 
+ * 每次排序一个子数组和一个新的元素，子数组总是假设是有序的。
+ * 此时，将新元素插入到子数组的特定位置，从而形成更大的子数组。
+ * 最终，得到完成的排序。
+ * 
  * @param a Comparable Array
  * @param size Array length
 */
 public void insertionSort(int* a, const int size);
+
+
 public void shellSort(int* a, const int size);
 
 
@@ -76,6 +77,8 @@ public void shellSort(int* a, const int size);
 public void
 fSortTest(f_sort fs, const int size);
 
+
+// private bool safeInsert(int* array, const int array_size, const int ori_position, const int new_position);
 
 #endif
 /* f_sort.h */
