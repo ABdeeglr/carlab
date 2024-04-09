@@ -1,8 +1,10 @@
 #include "f_sort.h"
 #include <stdlib.h>
 #include <stdio.h>
-#define DEBUG 1
+#define DEBUG 0
 #include "../head.h"
+#include <time.h>
+#include "array_generator.h"
 
 friend void
 printArray(int* array, const int size)
@@ -35,7 +37,7 @@ selectSort(int* a, const int size)
     int array_len = size;
     int smallest_index;
     for (int i = 0; i < array_len - 1; i++) {
-        printArray(a, 20);
+        // printArray(a, 20);
         smallest_index = i;
         for (int j = i + 1; j < array_len; j++)
         {
@@ -43,4 +45,25 @@ selectSort(int* a, const int size)
         }
         exchange(a, smallest_index, i);
     }
+}
+
+
+public void
+insertionSort(int* a, const int size);
+
+
+/**
+ * 接受一个函数参数，该函数代表特定的
+ */
+public void
+fSortTest(f_sort fs, const int size) {
+    int* array = intArrayGenerator(size, size * 10);
+    printArray(array, size);
+    clock_t start = clock();
+    fs(array, size);
+    clock_t end = clock();
+    clock_t diff = end - start;
+    printf("last: %lu\n", diff);
+    printArray(array, size);
+    free(array);
 }
