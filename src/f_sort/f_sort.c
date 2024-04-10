@@ -1,9 +1,8 @@
 #include "f_sort.h"
-#define DEBUG 1
 #include "../head.h"
 #include "libfss.h"
 
-void selectSort(int* a, const int size)
+int* selectSort(int* a, const int size)
 {
     int array_len = size;
     int smallest_index;
@@ -16,14 +15,15 @@ void selectSort(int* a, const int size)
         }
         exchange(a, smallest_index, latest);
     }
+    return a;
 }
 
 
-void insertionSort(int* a, const int size) {
-    if (size == 1) return;
+int* insertionSort(int* a, const int size) {
+    if (size == 1) return a;
     if (size == 2) {
         if (a[0] > a[1]) exchange(a, 0, 1);
-        return;
+        return a;
     }
 
     __DEBUG("Sort start...")
@@ -34,8 +34,9 @@ void insertionSort(int* a, const int size) {
         __DEBUG("Sort doing: round #%d", latest - 1);
         int new_position = ascendingSearch(a, latest, a[latest]);
         safeInsert(a, size, latest, new_position);
-        printArray(a, size);
+        // printArray(a, size);
     }
     __DEBUG("Sort Complete.")
+    return a;
 }
 

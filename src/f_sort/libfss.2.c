@@ -8,6 +8,14 @@
 #include <stdlib.h>
 #include <time.h>
 
+long arrayProcessorTiming(ArrayProcessor ap, int* __array, const int __size) {
+    clock_t start = clock();
+    ap(__array, __size);
+    clock_t end = clock();
+    clock_t diff = end - start;
+    return (long) diff;
+}
+
 bool ascendOrderTest(int* __array, const int __array_size) {
     if (__array_size <= 1) return true;
     for (int i = 0; i < __array_size - 1; i++) {
@@ -17,19 +25,22 @@ bool ascendOrderTest(int* __array, const int __array_size) {
     return true;
 }
 
-int ascendingSearch(int* asceding_array,
+int ascendingSearch(int* ascending_array,
                     const int size,
                     const int value)
 {
     int start = 0;
     int end = size;
+    if (value <= ascending_array[0]) return 0;
+    if (value >= ascending_array[size - 1]) return size; 
+    
     int pos = (start + end) / 2;
     do {
-        if (asceding_array[pos - 1] <= value 
-        && value <= asceding_array[pos]) break;
+        if (ascending_array[pos - 1] <= value 
+        && value <= ascending_array[pos]) break;
 
-        if (asceding_array[pos] < value) start = pos;
-        else if (asceding_array[pos] > value) end = pos;
+        if (ascending_array[pos] < value) start = pos;
+        else if (ascending_array[pos] > value) end = pos;
         else return pos;
         pos = (start + end) / 2;
     } while (true);

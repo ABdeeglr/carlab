@@ -20,7 +20,7 @@
  * 这种方法叫做选择排序，因为它在不断地选择剩余元素之中的最小者. 
  * @param a Comparable Array
  */
-void selectSort(int* a, const int size);
+int* selectSort(int* a, const int size);
 
 /**
  * 插入排序 
@@ -32,10 +32,10 @@ void selectSort(int* a, const int size);
  * @param a Comparable Array
  * @param size Array length
 */
-void insertionSort(int* a, const int size);
+int* insertionSort(int* a, const int size);
 
 
-void shellSort(int* a, const int size);
+int* shellSort(int* a, const int size);
 
 
 

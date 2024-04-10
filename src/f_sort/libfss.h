@@ -25,8 +25,8 @@
 #define friend
 
 
-typedef void (*ArraySorter)(int*, const int);
-typedef ArraySorter ArrayProducter;
+typedef int* (*ArrayProcessor)(int*, const int);
+typedef ArrayProcessor ArraySorter;
 
 /**********  Support Fuctions  **********/
 
@@ -75,7 +75,7 @@ void exchange(int* ary, const int index_a, const int index_b);
 
 
 /**
- * (finished-bug) ascedingSearch.
+ * (finished-pass) ascedingSearch.
  * 在升序数组中寻找一个合适的位置，使得插入新元素后，仍能保持有序
  * ### Example
  * array = [1, 2, 3, 6, 7, 11];
@@ -95,12 +95,12 @@ int binarySearch(int* ascending_array, const int __size, const int __value);
 
 
 /**
- * (finished-pass) arrayProducterTiming
- * 针对任意符合 ArrayProducter 或 ArraySorter 接口的函数进行测试
+ * (finished-pass) arrayProcessorTiming
+ * 针对任意符合 ArrayProcessor 或 ArraySorter 接口的函数进行测试
  * 统计其占用的 CPU 时间片。
  * 返回所使用的时间。
 */
-long arrayProducterTiming(ArrayProducter ap, int* __array, const int __size);
+long arrayProcessorTiming(ArrayProcessor ap, int* __array, const int __size);
 
 
 /*********  Test  ***********/
@@ -108,25 +108,27 @@ long arrayProducterTiming(ArrayProducter ap, int* __array, const int __size);
 
 
 /**
- * (unfinish-outofdate) fSortTimeTest
- * 排序函数测试函数. 
- * 根据输入的排序函数和需要的数组大小，自动进行测试
- * @param fs 特定的排序函数
- * @param size 作为测试对象的数组长度
+ * - (unfinish-outofdate) fSortTest 
+ * 
+ * 对排序算法进行多样本效率测试
+ * @param fas 特定的排序函数
 */
-void fSortTest(ArraySorter fs, const int __size);
+void fSortAnalyzer(ArraySorter fas);
 
 
 /**
  * (unfinish) fSortCertifyTest
- * 排序函数正确性测试，通过返回 true，反之返回 false
+ * 排序函数可靠性测试，
+ * 主要判断排序是否正确
+ * 通过返回 true，反之返回 false
  */
 bool fSortCertifyTest(ArraySorter fs, const int __size);
 
 
 /**
  * (finished-pass) ascendOrderTest
- * 测试数组是否有序
+ * 测试数组是否以升序排列
+ * @return bool
  */
 bool ascendOrderTest(int* __array, const int __size);
 
