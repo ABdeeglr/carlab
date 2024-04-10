@@ -9,37 +9,7 @@
 #ifndef __F_SORT_H__
 #define __F_SORT_H__
 
-// #include <stdbool.h>
 
-/**
- * 对外接口
- */ 
-#define public
-
-/**
- * 仅限编译单元内使用
- */
-#define private 
-
-/**
- * 项目内使用
- */
-#define friend
-
-// A self-designede compare function for any object
-typedef int (*f_compare)(void* a, void* b);
-
-// int sort function interface
-typedef void (*f_sort)(int*, const int);
-
-
-friend int* createIntArray();
-
-friend int natural_compare(int a, int b);
-
-friend void exchange(int* ary, const int index_a, const int index_b);
-
-friend void printArray(int* array, const int size);
 
 
 /**
@@ -50,7 +20,7 @@ friend void printArray(int* array, const int size);
  * 这种方法叫做选择排序，因为它在不断地选择剩余元素之中的最小者. 
  * @param a Comparable Array
  */
-public void selectSort(int* a, const int size);
+void selectSort(int* a, const int size);
 
 /**
  * 插入排序 
@@ -62,23 +32,12 @@ public void selectSort(int* a, const int size);
  * @param a Comparable Array
  * @param size Array length
 */
-public void insertionSort(int* a, const int size);
+void insertionSort(int* a, const int size);
 
 
-public void shellSort(int* a, const int size);
+void shellSort(int* a, const int size);
 
 
-/**
- * 排序函数测试函数. 
- * 根据输入的排序函数和需要的数组大小，自动进行测试
- * @param fs 特定的排序函数
- * @param size 作为测试对象的数组长度
-*/
-public void
-fSortTest(f_sort fs, const int size);
-
-
-// private bool safeInsert(int* array, const int array_size, const int ori_position, const int new_position);
 
 #endif
 /* f_sort.h */
