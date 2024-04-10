@@ -75,7 +75,7 @@ void exchange(int* ary, const int index_a, const int index_b);
 
 
 /**
- * (finished-pass) ascedingSearch.
+ * (finished-bug) ascedingSearch.
  * 在升序数组中寻找一个合适的位置，使得插入新元素后，仍能保持有序
  * ### Example
  * array = [1, 2, 3, 6, 7, 11];

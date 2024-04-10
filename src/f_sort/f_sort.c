@@ -1,5 +1,5 @@
 #include "f_sort.h"
-#define DEBUG 0
+#define DEBUG 1
 #include "../head.h"
 #include "libfss.h"
 
@@ -7,14 +7,14 @@ void selectSort(int* a, const int size)
 {
     int array_len = size;
     int smallest_index;
-    for (int i = 0; i < array_len - 1; i++) {
+    for (int latest = 0; latest < array_len - 1; latest++) {
         // printArray(a, 20);
-        smallest_index = i;
-        for (int j = i + 1; j < array_len; j++)
+        smallest_index = latest;
+        for (int j = latest + 1; j < array_len; j++)
         {
             if (a[smallest_index] > a[j]) smallest_index = j;
         }
-        exchange(a, smallest_index, i);
+        exchange(a, smallest_index, latest);
     }
 }
 
@@ -25,10 +25,17 @@ void insertionSort(int* a, const int size) {
         if (a[0] > a[1]) exchange(a, 0, 1);
         return;
     }
+
+    __DEBUG("Sort start...")
     if (a[0] > a[1]) exchange(a, 0, 1);
-    for (int i = 2; i < size; i++) {
-        int new_position = binarySearch(a, i, a[i]);
-        safeInsert(a, size, i, new_position);
+    __DEBUG("Basic procedure complete.");
+
+    for (int latest = 2; latest < size; latest++) {
+        __DEBUG("Sort doing: round #%d", latest - 1);
+        int new_position = ascendingSearch(a, latest, a[latest]);
+        safeInsert(a, size, latest, new_position);
+        printArray(a, size);
     }
+    __DEBUG("Sort Complete.")
 }
 
