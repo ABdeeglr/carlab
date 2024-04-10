@@ -17,6 +17,27 @@ bool ascendOrderTest(int* __array, const int __array_size) {
     return true;
 }
 
+int ascendingSearch(int* asceding_array,
+                    const int size,
+                    const int value)
+{
+    int start = 0;
+    int end = size;
+    int pos = (start + end) / 2;
+    do {
+        if (asceding_array[pos - 1] <= value 
+        && value <= asceding_array[pos]) break;
+
+        if (asceding_array[pos] < value) start = pos;
+        else if (asceding_array[pos] > value) end = pos;
+        else return pos;
+        pos = (start + end) / 2;
+    } while (true);
+
+    return pos;
+}
+
+
 
 int* arraySlice(int* __array, const int __start, const int __end) {
     int* ret = (int*) malloc(sizeof(int) * (__end - __start));

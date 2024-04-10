@@ -31,7 +31,7 @@ typedef ArraySorter ArrayProducter;
 /**********  Support Fuctions  **********/
 
 /**
- * (finished-tested) reverseArray
+ * (finished-pass) reverseArray
  * 翻转数组
  */
 void reverseArray(int* __array, const int __size);
@@ -57,7 +57,7 @@ void printArray(int* __array, const int __size);
 int* intArrayGenerator(const int size, const int boundary);
 
 /**
- * (finished-untested) 将数组中的指定元素插入指定位置，原本处在该位置的元素向后移动一位，以此类推。 
+ * (finished-pass) 将数组中的指定元素插入指定位置，原本处在该位置的元素向后移动一位，以此类推。 
  * 从而保持数组原本的顺序。 
  * @param array_size 数组长度
  * @param ori_position 需要被移动的数组元素的初始位置
@@ -75,14 +75,19 @@ void exchange(int* ary, const int index_a, const int index_b);
 
 
 /**
- * (unfinish) ascedingSearch.
- * 在有序数组中寻找一个合适的位置，使得插入新元素后，仍能保持有序
+ * (finished-pass) ascedingSearch.
+ * 在升序数组中寻找一个合适的位置，使得插入新元素后，仍能保持有序
+ * ### Example
+ * array = [1, 2, 3, 6, 7, 11];
+ * input = 10;
+ * position = ascendingSearch(array, size, input);
+ * position is 5;
  */
 int ascendingSearch(int* asceding_array, const int size, const int value);
 
 
 /**
- * (finished-tested) binarySearch
+ * (finished-pass) binarySearch
  * 在有序数组中，查找一个元素的位置，并返回第一个匹配的位置
  * 如果不存在，则返回 -1
  */
