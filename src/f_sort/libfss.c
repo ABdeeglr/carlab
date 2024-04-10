@@ -67,19 +67,13 @@ int* intArrayGenerator(const int size, const int boundary) {
     return numbers;
 }
 
-void fSortTimeTest(f_sort fs, const int size) {
+void fSortTimeTest(ArraySorter fs, const int size) {
     int* array = intArrayGenerator(size, size * 10);
-    printArray(array, size);
-    clock_t start = clock();
-    fs(array, size);
-    clock_t end = clock();
-    clock_t diff = end - start;
-    printf("last: %lu\n", diff);
-    printArray(array, size);
+    arrayProducterTiming(fs, array, size);
     free(array);
 }
 
-bool fSortCertifyTest(f_sort fs, const int __size) {
+bool fSortCertifyTest(ArraySorter fs, const int __size) {
     return false;
 }
 
@@ -96,4 +90,37 @@ int binarySearch(int* ascending_array, const int __size, const int __value) {
     }
 
     return -1;
+}
+
+
+bool ascendOrderTest(int* __array, const int __size) {
+    if (__size <= 1) return true;
+    for (int i = 0; i < __size - 1; i++) {
+        if (__array[i] <= __array[i+1]) continue;
+        else return false;
+    }
+    return true;
+}
+
+void reverseArray(int* __array, const int __size) {
+    int* tmp = (int*) malloc(sizeof(int) * __size);
+    for (int i = 0; i < __size; i++) {
+        tmp[i] = __array[__size - 1 - i];
+    }
+    for (int i = 0; i < __size; i++) {
+        __array[i] = tmp[i];
+    }
+    free(tmp);
+}
+
+
+long arrayProducterTiming(ArrayProducter ap, int* __array, const int __size) {
+    printArray(__array, __size);
+    clock_t start = clock();
+    ap(__array, __size);
+    clock_t end = clock();
+    clock_t diff = end - start;
+    printf("last: %lu\n", diff);
+    printArray(__array, __size);
+    return (long) diff;
 }

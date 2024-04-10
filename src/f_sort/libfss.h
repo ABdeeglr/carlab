@@ -25,8 +25,16 @@
 #define friend
 
 
+typedef void (*ArraySorter)(int*, const int);
+typedef ArraySorter ArrayProducter;
 
 /**********  Support Fuctions  **********/
+
+/**
+ * (unfinish) reverseArray
+ * 翻转数组
+ */
+void reverseArray(int* __array, const int __size);
 
 /**
  * (finished-pass) Print the array in human-readable style
@@ -65,33 +73,47 @@ int ascedingSearch(int* asceding_array, const int size, const int value);
 
 /**
  * (unfinish) binarySearch
- * 在有序数组中，查找一个元素的位置。如果不存在，则返回 -1
+ * 在有序数组中，查找一个元素的位置。
+ * 如果不存在，则返回 -1
  */
 int binarySearch(int* ascending_array, const int __size, const int __value);
+
+
+/**
+ * (finish-pass) arrayProducterTiming
+ * 针对任意符合 ArrayProducter 或 ArraySorter 接口的函数进行测试
+ * 统计其占用的 CPU 时间片。
+ * 返回所使用的时间。
+*/
+long arrayProducterTiming(ArrayProducter ap, int* __array, const int __size);
 
 
 /*********  Test  ***********/
 
 
-// int sort function interface
-typedef void (*f_sort)(int*, const int);
 
 /**
- * (finished-pass) fSortTimeTest
+ * (unfinish-backtime) fSortTimeTest
  * 排序函数测试函数. 
  * 根据输入的排序函数和需要的数组大小，自动进行测试
  * @param fs 特定的排序函数
  * @param size 作为测试对象的数组长度
 */
-void fSortTimeTest(f_sort fs, const int __size);
+void fSortTimeTest(ArraySorter fs, const int __size);
 
 
 /**
  * (unfinish) fSortCertifyTest
  * 排序函数正确性测试，通过返回 true，反之返回 false
  */
-bool fSortCertifyTest(f_sort fs, const int __size);
+bool fSortCertifyTest(ArraySorter fs, const int __size);
 
+
+/**
+ * (unfinish) ascendOrderTest
+ * 测试数组是否有序
+ */
+bool ascendOrderTest(int* __array, const int __size);
 
 
 #endif
