@@ -85,11 +85,17 @@ int binarySearch(int* ascending_array, const int __size, const int __value) {
     while (end - start > 1) {
         if (ascending_array[interval] > __value) end = interval;
         else if (ascending_array[interval] < __value) start = interval;
-        else return interval;
+        else break;
         interval = (end + start) / 2;
     }
 
-    if (ascending_array[interval] == __value) return interval;
+    if (ascending_array[interval] == __value) {
+        while (ascending_array[interval - 1] == __value)
+        {
+            interval--;
+        }
+        return interval;
+    }
     else return -1;
 }
 

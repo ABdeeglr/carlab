@@ -68,14 +68,13 @@ void exchange(int* ary, const int index_a, const int index_b);
  * (unfinish) ascedingSearch.
  * 在有序数组中寻找一个合适的位置，使得插入新元素后，仍能保持有序
  */
-int ascedingSearch(int* asceding_array, const int size, const int value);
+int ascendingSearch(int* asceding_array, const int size, const int value);
 
 
 /**
  * (edfinish-tested) binarySearch
- * 在有序数组中，查找一个元素的位置。
+ * 在有序数组中，查找一个元素的位置，并返回第一个匹配的位置
  * 如果不存在，则返回 -1
- * 该函数具有不稳定性，如果有序数组中具有多个相同元素，无法保证返回第一个匹配值
  */
 int binarySearch(int* ascending_array, const int __size, const int __value);
 
