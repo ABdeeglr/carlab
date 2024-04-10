@@ -72,7 +72,7 @@ int ascendingSearch(int* asceding_array, const int size, const int value);
 
 
 /**
- * (edfinish-tested) binarySearch
+ * (finished-tested) binarySearch
  * 在有序数组中，查找一个元素的位置，并返回第一个匹配的位置
  * 如果不存在，则返回 -1
  */
@@ -99,7 +99,7 @@ long arrayProducterTiming(ArrayProducter ap, int* __array, const int __size);
  * @param fs 特定的排序函数
  * @param size 作为测试对象的数组长度
 */
-void fSortTimeTest(ArraySorter fs, const int __size);
+void fSortTest(ArraySorter fs, const int __size);
 
 
 /**

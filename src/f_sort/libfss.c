@@ -67,7 +67,7 @@ int* intArrayGenerator(const int size, const int boundary) {
     return numbers;
 }
 
-void fSortTimeTest(ArraySorter fs, const int size) {
+void fSortTest(ArraySorter fs, const int size) {
     int* array = intArrayGenerator(size, size * 10);
     arrayProducterTiming(fs, array, size);
     free(array);
