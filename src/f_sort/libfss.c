@@ -80,22 +80,23 @@ bool fSortCertifyTest(ArraySorter fs, const int __size) {
 int binarySearch(int* ascending_array, const int __size, const int __value) {
     int start = 0;
     int end = __size;
-    int interval = (end - start) / 2;
+    int interval = (end + start) / 2;
 
-    while (ascending_array[interval] != __value) {
+    while (end - start > 1) {
         if (ascending_array[interval] > __value) end = interval;
         else if (ascending_array[interval] < __value) start = interval;
         else return interval;
-        interval = (end - start) / 2;
+        interval = (end + start) / 2;
     }
 
-    return -1;
+    if (ascending_array[interval] == __value) return interval;
+    else return -1;
 }
 
 
-bool ascendOrderTest(int* __array, const int __size) {
-    if (__size <= 1) return true;
-    for (int i = 0; i < __size - 1; i++) {
+bool ascendOrderTest(int* __array, const int __array_size) {
+    if (__array_size <= 1) return true;
+    for (int i = 0; i < __array_size - 1; i++) {
         if (__array[i] <= __array[i+1]) continue;
         else return false;
     }

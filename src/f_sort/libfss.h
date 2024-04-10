@@ -31,7 +31,7 @@ typedef ArraySorter ArrayProducter;
 /**********  Support Fuctions  **********/
 
 /**
- * (unfinish) reverseArray
+ * (finished-tested) reverseArray
  * 翻转数组
  */
 void reverseArray(int* __array, const int __size);
@@ -72,9 +72,10 @@ int ascedingSearch(int* asceding_array, const int size, const int value);
 
 
 /**
- * (unfinish) binarySearch
+ * (edfinish-tested) binarySearch
  * 在有序数组中，查找一个元素的位置。
  * 如果不存在，则返回 -1
+ * 该函数具有不稳定性，如果有序数组中具有多个相同元素，无法保证返回第一个匹配值
  */
 int binarySearch(int* ascending_array, const int __size, const int __value);
 
@@ -110,7 +111,7 @@ bool fSortCertifyTest(ArraySorter fs, const int __size);
 
 
 /**
- * (unfinish) ascendOrderTest
+ * (finished-pass) ascendOrderTest
  * 测试数组是否有序
  */
 bool ascendOrderTest(int* __array, const int __size);
