@@ -37,6 +37,16 @@ typedef ArraySorter ArrayProducter;
 void reverseArray(int* __array, const int __size);
 
 /**
+ * (finish-pass) arraySlice
+ * 在堆上开辟一个数组的切片.
+ * 如果数组上的元素是引用类型，只会进行浅拷贝。
+ * ### Example
+ * arraySlice([0, 1, 2, 3, 4, 5], 0, 3)
+ * return [0, 1, 2]
+ */
+int* arraySlice(int* __array, const int __start, const int __end);
+
+/**
  * (finished-pass) Print the array in human-readable style
  */
 void printArray(int* __array, const int __size);
@@ -80,7 +90,7 @@ int binarySearch(int* ascending_array, const int __size, const int __value);
 
 
 /**
- * (finish-pass) arrayProducterTiming
+ * (finished-pass) arrayProducterTiming
  * 针对任意符合 ArrayProducter 或 ArraySorter 接口的函数进行测试
  * 统计其占用的 CPU 时间片。
  * 返回所使用的时间。
@@ -93,7 +103,7 @@ long arrayProducterTiming(ArrayProducter ap, int* __array, const int __size);
 
 
 /**
- * (unfinish-backtime) fSortTimeTest
+ * (unfinish-outofdate) fSortTimeTest
  * 排序函数测试函数. 
  * 根据输入的排序函数和需要的数组大小，自动进行测试
  * @param fs 特定的排序函数
