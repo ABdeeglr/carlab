@@ -108,7 +108,7 @@ long arrayProcessorTiming(ArrayProcessor ap, int* __array, const int __size);
 
 
 /**
- * - (unfinish-outofdate) fSortTest 
+ * - (finished-pass) fSortAnalyzer 
  * 
  * 对排序算法进行多样本效率测试
  * @param fas 特定的排序函数
@@ -117,7 +117,7 @@ void fSortAnalyzer(ArraySorter fas);
 
 
 /**
- * (unfinish) fSortCertifyTest
+ * (finished-pass) fSortCertifyTest
  * 排序函数可靠性测试，
  * 主要判断排序是否正确
  * 通过返回 true，反之返回 false
